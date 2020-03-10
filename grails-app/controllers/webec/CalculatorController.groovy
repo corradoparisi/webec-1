@@ -2,8 +2,15 @@ package webec
 
 class CalculatorController {
 
-    def calc(double en, double msp) {
-        double result = (en + msp) / 2
-        render view: 'CalculatorOutput', model: [result: result]
+    def calc(CalculatorModel calculatorModel) {
+        double result = (calculatorModel.getEn() + calculatorModel.getMsp()) / 2
+        calculatorModel.result = result
+        render view: 'CalculatorOutput', model: [calcModel: calculatorModel]
+    }
+
+    class CalculatorModel {
+        double en
+        double msp
+        String result = ''
     }
 }
