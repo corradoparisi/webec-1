@@ -13,15 +13,11 @@
 <body>
 <form action="/calculator/calc" id="calculator-form" method="get">
 
-    <div class="form-group">
-        <label for="en">Erfahrungsnote:</label><br>
-        <input type="text" id="en" name="en" value="${calcModel.en}">
-    </div>
+    <tmpl:form_row label="Erfahrungsnote" name="en" />
+    <tmpl:form_row label="Modulschlussprüfung" name="msp" />
 
-    <div class="form-group">
-        <label for="msp">Modulschlussprüfung:</label><br>
-        <input type="text" id="msp" name="msp" value="${calcModel.msp}">
-    </div>
+
+
 
     <div class="alert alert-info">
         ${calcModel.result}
