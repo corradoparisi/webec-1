@@ -12,15 +12,11 @@
 
 <body>
 <form action="/calculator/calc" id="calculator-form" method="get">
-
     <tmpl:form_row label="Erfahrungsnote" name="en" />
     <tmpl:form_row label="Modulschlussprüfung" name="msp" />
 
-
-
-
     <div class="alert alert-info">
-        ${calcModel.result}
+    <webec:decorate grade="${calcModel.result}">${calcModel.result}</webec:decorate>
     </div>
 
     <input type="submit" class="btn btn-primary" value="Calculate">
