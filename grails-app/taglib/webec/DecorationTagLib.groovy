@@ -5,13 +5,17 @@ class DecorationTagLib {
     static namespace = "webec"
 
     def decorate = { attributes, body ->
-        int grade = Float.parseFloat(attributes.grade)
         String decor = ''
-        if(grade >= 4) {
-            decor = ' :-)'
+        try {
+            float grade = Float.parseFloat(attributes.grade)
+            if (grade >= 4) {
+                decor = ' :-)'
+            } else {
+                decor = ' :-('
+            }
         }
-        else {
-            decor = ' :-('
+        catch (NumberFormatException e) {
+            // ignore
         }
 
         out << body()
